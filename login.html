@@ -32,7 +32,8 @@
     </div> 
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
-        $('.input_sub').click(function() {
+        $('.input_sub').click(function(e) {
+            e.preventDefault();
             var username = $('.input_txt').val().trim();
             var password = $('.input_pass').val().trim();
         // 第一种方式
