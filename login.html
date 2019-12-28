@@ -29,38 +29,28 @@
             </form>
         </div>
 
-    </div> 
+    </div>
     <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/back.js/user.js"></script>
     <script>
-        $('.input_sub').click(function(e) {
+        $('.input_sub').click(function (e) {
             e.preventDefault();
             var username = $('.input_txt').val().trim();
             var password = $('.input_pass').val().trim();
-        // 第一种方式
-          /*   $.ajax({
-                type:'POST',
-                url:'http://localhost:8000/admin/login',
-                data:{user_name:username,password:password},
-                success:function(res) {
-                    alert(res.msg);
-                    if(res.code===200) {
-                        location.href = 'index.html';
-                    }
-                }
-            }); */
+            // 第一种方式
+            /*   $.ajax({
+                  type:'POST',
+                  url:'http://localhost:8000/admin/login',
+                  data:{user_name:username,password:password},
+                  success:function(res) {
+                      alert(res.msg);
+                      if(res.code===200) {
+                          location.href = 'index.html';
+                      }
+                  }
+              }); */
             // 第二种方式
-            $.post(
-                'http://localhost:8000/admin/login',
-                {user_name:username,password:password},
-                function(res) {
-                    alert(res.msg);
-                    if(res.code===200) {
-                        location.href = 'index.html';
-                    }
-                },
-                'json'
-
-            )
+            user.login(username, password)
         });
 
     </script>
