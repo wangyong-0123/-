@@ -112,6 +112,7 @@
     </script>
     <script src="./js/jquery-1.12.4.min.js"></script>
     <script>
+        // 退出界面
         $('#tiaozhuan').click(function () {
             $.post('http://localhost:8000/admin/logout',
                 function (res) {
@@ -122,6 +123,12 @@
                     }
                 }
             )
+        });
+        // 获取用户信息
+        $.get('http://localhost:8000/admin/getuser',function(res) {
+            console .log(res);
+            $('.user_info').find('img').attr('src',res.data.user_pic).next('span').html('欢迎&nbsp;&nbsp;'+res.data.nickname);
+            $('.user_center_link').find('img').attr('src',res.data.user_pic);
         })
 
     </script>
