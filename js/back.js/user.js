@@ -10,10 +10,9 @@ var user = {
             },
         )
     },
-    userMessage:function() {
+    userMessage:function(callback) {
         $.get('http://localhost:8000/admin/getuser',function(res) {
-            $('.user_info').find('img').attr('src',res.data.user_pic).next('span').html('欢迎&nbsp;&nbsp;'+res.data.nickname);
-            $('.user_center_link').find('img').attr('src',res.data.user_pic);
+          callback(res);
         })
     },
     login:function(username,password){
